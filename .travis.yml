@@ -25,6 +25,7 @@ before_script:
   - cd 030.$ROLE_NAME
 
 script:
+  - apt-get install git -y
   # Run tests.
   - molecule test
 

@@ -10,4 +10,3 @@
 
   roles:
     - role: 030.ansible-ssr
-    - role: geerlingguy.git
