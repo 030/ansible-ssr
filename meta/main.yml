@@ -23,4 +23,4 @@ galaxy_info:
         - xenial
         - bionic
   galaxy_tags:
-    - ssr simplescreenrecorder recorder screen
+    - simplescreenrecorder
