@@ -8,26 +8,26 @@
 - name: Install prerequisites
   apt:
     pkg:
-    - build-essential
-    - cmake
-    - pkg-config
-    - qt4-qmake
-    - libqt4-dev
-    - desktop-file-utils
-    - libavformat-dev
-    - libavcodec-dev
-    - libavutil-dev
-    - libswscale-dev
-    - libasound2-dev
-    - libpulse-dev
-    - libjack-jackd2-dev
-    - libgl1-mesa-dev
-    - libglu1-mesa-dev
-    - libx11-dev
-    - libxfixes-dev
-    - libxext-dev
-    - libxi-dev
-    - libxinerama-dev
+      - build-essential
+      - cmake
+      - pkg-config
+      - qt4-qmake
+      - libqt4-dev
+      - desktop-file-utils
+      - libavformat-dev
+      - libavcodec-dev
+      - libavutil-dev
+      - libswscale-dev
+      - libasound2-dev
+      - libpulse-dev
+      - libjack-jackd2-dev
+      - libgl1-mesa-dev
+      - libglu1-mesa-dev
+      - libx11-dev
+      - libxfixes-dev
+      - libxext-dev
+      - libxi-dev
+      - libxinerama-dev
 
 # https://github.com/jdauphant/ansible-role-packaging/blob/master/tasks/Debian.yml
 - name: Check if i386 is enabled
