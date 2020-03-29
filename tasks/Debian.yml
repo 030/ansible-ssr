@@ -57,7 +57,7 @@
 
 - block:
     - debug:
-        msg: "SSR version {{ ssr_version }}"
+        msg: "SSR version {{ ssr_installed_version.stderr }}"
 
     - name: Clone ssr repository
       git:
