@@ -1,1 +1,56 @@
 ---
+- name: Install list of packages
+  apt:
+    pkg:
+    - build-essential
+    - cmake
+    - pkg-config
+    - qt4-qmake
+    - libqt4-dev
+    - desktop-file-utils
+    - libavformat-dev
+    - libavcodec-dev
+    - libavutil-dev
+    - libswscale-dev
+    - libasound2-dev
+    - libpulse-dev
+    - libjack-jackd2-dev
+    - libgl1-mesa-dev
+    - libglu1-mesa-dev
+    - libx11-dev
+    - libxfixes-dev
+    - libxext-dev
+    - libxi-dev
+    - libxinerama-dev
+
+# https://github.com/jdauphant/ansible-role-packaging/blob/master/tasks/Debian.yml
+- name: Check if i386 is enabled
+  shell: dpkg --print-foreign-architectures | grep i386
+  register: result_i386_check
+  changed_when: result_i386_check.rc == 1
+  failed_when: result_i386_check.rc > 1
+- name: Enable i386 architecture
+  command: dpkg --add-architecture i386
+  when: result_i386_check.rc == 1
+- name: Ensure apt cache is up to date
+  apt: update_cache=yes
+  when: result_i386_check.rc == 1
+
+- name: Install list of packages after enabling 32bit
+  apt:
+    pkg:
+    - g++-multilib
+    - libgl1-mesa-dev:i386
+    - libglu1-mesa-dev:i386
+    - libx11-dev:i386
+    - libxfixes-dev:i386
+
+- name: Clone ssr repository
+  git:
+    repo: https://github.com/MaartenBaert/ssr
+    dest: /opt/ssr
+
+- name: Install ssr
+  shell:
+    cmd: ./simple-build-and-install
+    chdir: /opt/ssr
