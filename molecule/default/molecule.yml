@@ -5,7 +5,7 @@ driver:
   name: docker
 platforms:
   - name: instance
-    image: "utrecht/docker-${MOLECULE_DISTRO:-centos7}-ansible:1.0.0"
+    image: "utrecht/docker-${MOLECULE_DISTRO:-centos7}-ansible:${MOLECULE_DISTRO_TAG}"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
