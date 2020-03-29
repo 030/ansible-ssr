@@ -15,4 +15,4 @@
 [![Ansible Galaxy](https://img.shields.io/ansible/role/0.svg)](https://galaxy.ansible.com/030/ansible-ssr)
 [![Ansible Role](https://img.shields.io/ansible/role/d/0)](https://galaxy.ansible.com/030/ansible-ssr)
 
-Installs [ansible-ssr](https://github.com/MaartenBaert/ssr).
+Installs [simplescreenrecorder](https://github.com/MaartenBaert/ssr).
