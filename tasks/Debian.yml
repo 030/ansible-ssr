@@ -1,4 +1,10 @@
 ---
+- name: Determine installed ssr version
+  command: simplescreenrecorder --version
+  register: ssr_installed_version
+  changed_when: false
+  failed_when: false
+
 - name: Install prerequisites
   apt:
     pkg:
@@ -45,19 +51,23 @@
     - libx11-dev:i386
     - libxfixes-dev:i386
 
-- name: Clone ssr repository
-  git:
-    repo: https://github.com/MaartenBaert/ssr
-    dest: /opt/ssr
+- block:
+  - name: Clone ssr repository
+    git:
+      repo: https://github.com/MaartenBaert/ssr
+      dest: "{{ ssr_installdir }}"
 
-- name: Allow non-root to install ssr
-  file:
-    path: /opt/ssr
-    state: directory
-    mode: 0777
+  - name: Allow non-root to install ssr
+    file:
+      path: "{{ ssr_installdir }}"
+      state: directory
+      mode: 0777
 
-- name: Install ssr
-  shell:
-    cmd: ./simple-build-and-install
-    chdir: /opt/ssr
-  become: false
+  - name: Install ssr
+    shell:
+      cmd: ./simple-build-and-install
+      chdir: "{{ ssr_installdir }}"
+    become: false
+  when: >
+    ssr_installed_version.stderr is not defined
+    or ssr_version not in ssr_installed_version.stderr
