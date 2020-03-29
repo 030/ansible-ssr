@@ -56,13 +56,13 @@
       git:
         repo: https://github.com/MaartenBaert/ssr
         dest: "{{ ssr_installdir }}"
-  
+
     - name: Allow non-root to install ssr
       file:
         path: "{{ ssr_installdir }}"
         state: directory
         mode: 0777
-  
+
     - name: Install ssr
       shell:
         cmd: ./simple-build-and-install
