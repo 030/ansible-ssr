@@ -12,7 +12,7 @@
 ![Last commit](https://img.shields.io/github/last-commit/030/ansible-ssr.svg)
 ![Release date](https://img.shields.io/github/release-date/030/ansible-ssr.svg)
 ![Latest Production Release Version](https://img.shields.io/github/release/030/ansible-ssr.svg)
-[![Ansible Galaxy](https://img.shields.io/ansible/role/0.svg)](https://galaxy.ansible.com/030/ansible-ssr)
-[![Ansible Role](https://img.shields.io/ansible/role/d/0)](https://galaxy.ansible.com/030/ansible-ssr)
+[![Ansible Galaxy](https://img.shields.io/ansible/role/47518.svg)](https://galaxy.ansible.com/030/ansible-ssr)
+[![Ansible Role](https://img.shields.io/ansible/role/d/47518)](https://galaxy.ansible.com/030/ansible-ssr)
 
 Installs [SimpleScreenRecorder](https://github.com/MaartenBaert/ssr).
