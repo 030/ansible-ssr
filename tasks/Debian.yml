@@ -55,6 +55,7 @@
     - name: Clone ssr repository
       git:
         repo: https://github.com/MaartenBaert/ssr
+        version: master
         dest: "{{ ssr_installdir }}"
 
     - name: Allow non-root to install ssr
