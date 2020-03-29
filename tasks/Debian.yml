@@ -1,5 +1,5 @@
 ---
-- name: Install list of packages
+- name: Install prerequisites
   apt:
     pkg:
     - build-essential
@@ -36,7 +36,7 @@
   apt: update_cache=yes
   when: result_i386_check.rc == 1
 
-- name: Install list of packages after enabling 32bit
+- name: Install 32bit prerequisites
   apt:
     pkg:
     - g++-multilib
@@ -50,7 +50,14 @@
     repo: https://github.com/MaartenBaert/ssr
     dest: /opt/ssr
 
+- name: Allow non-root to install ssr
+  file:
+    path: /opt/ssr
+    state: directory
+    mode: 0777
+
 - name: Install ssr
   shell:
     cmd: ./simple-build-and-install
     chdir: /opt/ssr
+  become: false
