@@ -21,7 +21,7 @@ install:
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
   - cd ../
-  - mv ansible-$ROLE_NAME 030.$ROLE_NAME
+  - mv $ROLE_NAME 030.$ROLE_NAME
   - cd 030.$ROLE_NAME
 
 script:
