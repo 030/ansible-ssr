@@ -1,4 +1,4 @@
-# ansible-ansible-ssr
+# ansible-ssr
 
 [![Build Status](https://travis-ci.org/030/ansible-ansible-ssr.svg?branch=master)](https://travis-ci.org/030/ansible-ansible-ssr)
 [![GitHub issues](https://img.shields.io/github/issues/030/ansible-ansible-ssr)](https://github.com/030/ansible-ansible-ssr/issues)
