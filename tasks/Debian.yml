@@ -64,7 +64,7 @@
         mode: 0777
 
     - name: Install ssr
-      shell:
+      command:
         cmd: ./simple-build-and-install
         chdir: "{{ ssr_installdir }}"
       become: false
