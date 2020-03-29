@@ -56,6 +56,9 @@
       - libxfixes-dev:i386
 
 - block:
+    - debug:
+        msg: "SSR version {{ ssr_version }}"
+
     - name: Clone ssr repository
       git:
         repo: https://github.com/MaartenBaert/ssr
