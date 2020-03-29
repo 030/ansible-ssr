@@ -8,5 +8,10 @@
       apt: update_cache=yes cache_valid_time=600
       when: ansible_os_family == 'Debian'
 
+  tasks:
+    - name: install git
+      package:
+        name: git
+
   roles:
     - role: 030.ansible-ssr
