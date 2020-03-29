@@ -56,9 +56,6 @@
       - libxfixes-dev:i386
 
 - block:
-    - debug:
-        msg: "SSR version {{ ssr_installed_version.stderr }}"
-
     - name: Clone ssr repository
       git:
         repo: https://github.com/MaartenBaert/ssr
@@ -76,6 +73,7 @@
         cmd: ./simple-build-and-install
         chdir: "{{ ssr_installdir }}"
       become: false
+      when: ssr_ci is not defined
   when: >
     ssr_installed_version.stderr is not defined
     or ssr_version not in ssr_installed_version.stderr

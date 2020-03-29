@@ -12,5 +12,8 @@
         name: git
       when: ansible_os_family == 'Debian'
 
+  vars:
+    ssr_ci: true
+
   roles:
     - role: 030.ansible-ssr
