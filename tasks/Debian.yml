@@ -45,29 +45,29 @@
 - name: Install 32bit prerequisites
   apt:
     pkg:
-    - g++-multilib
-    - libgl1-mesa-dev:i386
-    - libglu1-mesa-dev:i386
-    - libx11-dev:i386
-    - libxfixes-dev:i386
+      - g++-multilib
+      - libgl1-mesa-dev:i386
+      - libglu1-mesa-dev:i386
+      - libx11-dev:i386
+      - libxfixes-dev:i386
 
 - block:
-  - name: Clone ssr repository
-    git:
-      repo: https://github.com/MaartenBaert/ssr
-      dest: "{{ ssr_installdir }}"
-
-  - name: Allow non-root to install ssr
-    file:
-      path: "{{ ssr_installdir }}"
-      state: directory
-      mode: 0777
-
-  - name: Install ssr
-    shell:
-      cmd: ./simple-build-and-install
-      chdir: "{{ ssr_installdir }}"
-    become: false
+    - name: Clone ssr repository
+      git:
+        repo: https://github.com/MaartenBaert/ssr
+        dest: "{{ ssr_installdir }}"
+  
+    - name: Allow non-root to install ssr
+      file:
+        path: "{{ ssr_installdir }}"
+        state: directory
+        mode: 0777
+  
+    - name: Install ssr
+      shell:
+        cmd: ./simple-build-and-install
+        chdir: "{{ ssr_installdir }}"
+      become: false
   when: >
     ssr_installed_version.stderr is not defined
     or ssr_version not in ssr_installed_version.stderr
