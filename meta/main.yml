@@ -9,6 +9,9 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
+        - focal
+    - name: Ubuntu
+      versions:
         - bionic
   galaxy_tags:
     - simplescreenrecorder
