@@ -9,7 +9,7 @@ env:
     - MOLECULE_DISTRO: ubuntu1804
       MOLECULE_DISTRO_TAG: 1.0.3
     - MOLECULE_DISTRO: ubuntu2004
-      MOLECULE_DISTRO_TAG: 1.0.0      
+      MOLECULE_DISTRO_TAG: 1.0.0
 
 install:
   # Install test dependencies.
